@@ -21,3 +21,14 @@ const allWagesFor = function () {
     return payable
 }
 
+
+function createEmployeeRecord(empRecordArray){
+    let employeeRecordObj = {
+        firstName:this[0],
+        familyName:this[1],
+        title:this[2],
+        payPerHour:this[3],
+        timeInEvents:[],
+        timeOutEvents:[]
+    }
+}
