@@ -24,11 +24,23 @@ const allWagesFor = function () {
 
 function createEmployeeRecord(empRecordArray){
     let employeeRecordObj = {
-        firstName:this[0],
-        familyName:this[1],
-        title:this[2],
-        payPerHour:this[3],
+        firstName:empRecordArray[0],
+        familyName:empRecordArray[1],
+        title:empRecordArray[2],
+        payPerHour:empRecordArray[3],
         timeInEvents:[],
         timeOutEvents:[]
     }
+    return employeeRecordObj
+}
+
+function createEmployeeRecords(allEmployeeArray){
+    let employeeArray = []
+    allEmployeeArray.forEach(employeeObj =>{ employeeArray.push(createEmployeeRecord(employeeObj))
+    })
+    return employeeArray
+}
+
+function createTimeInEvent(dateStamp){
+    console.log(dateStamp)
 }
