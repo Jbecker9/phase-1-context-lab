@@ -18,7 +18,7 @@ const allWagesFor = function () {
         return memo + wagesEarnedOnDate.call(this, d)
     }.bind(this), 0) // <== Hm, why did we need to add bind() there? We'll discuss soon!
 
-    console.log(payable)
+    // console.log(payable)
     return payable
     
 }
@@ -88,8 +88,9 @@ function findEmployeeByFirstName(allEmployeeArray, matchName){
     return employeeMatch
 }
 
-function calculatePayroll(employeeInfoArray){
-    
-    
-    console.log(empWages)
+function calculatePayroll(allEmployeeArray){
+    let empWages = allEmployeeArray.map(employee =>
+    allWagesFor.call(employee)
+    )
+    return empWages.reduce((a,b) => a + b)
 }
