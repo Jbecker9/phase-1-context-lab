@@ -42,5 +42,41 @@ function createEmployeeRecords(allEmployeeArray){
 }
 
 function createTimeInEvent(dateStamp){
-    console.log(dateStamp)
+    let dateStampString = dateStamp.split(' ')
+    let timeInObj = {
+        type:"TimeIn",
+        hour:parseInt(dateStampString[1]),
+        date:dateStampString[0]
+    }
+    this.timeInEvents.push(timeInObj)
+    return this
+}
+
+function createTimeOutEvent(dateStamp){
+    let dateStampString = dateStamp.split(' ')
+    let timeOutObj = {
+        type:"TimeOut",
+        hour:parseInt(dateStampString[1]),
+        date:dateStampString[0]
+    }
+    this.timeOutEvents.push(timeOutObj)
+    return this
+}
+
+function hoursWorkedOnDate(formDate){
+    // console.log(dateStamp)
+    let inDate = this.timeInEvents
+        .find(event => event.date === formDate)
+
+    let outDate = this.timeOutEvents
+        .find(event => event.date === formDate)
+
+    let totalHours = ((outDate.hour - inDate.hour) / 100)
+
+    console.log(totalHours)
+    return totalHours
+}
+
+function wagesEarnedOnDate(formDate){
+    
 }
