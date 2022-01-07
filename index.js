@@ -18,7 +18,9 @@ const allWagesFor = function () {
         return memo + wagesEarnedOnDate.call(this, d)
     }.bind(this), 0) // <== Hm, why did we need to add bind() there? We'll discuss soon!
 
+    console.log(payable)
     return payable
+    
 }
 
 
@@ -73,10 +75,21 @@ function hoursWorkedOnDate(formDate){
 
     let totalHours = ((outDate.hour - inDate.hour) / 100)
 
-    console.log(totalHours)
     return totalHours
 }
 
 function wagesEarnedOnDate(formDate){
+    let dayWage = hoursWorkedOnDate.call(this, formDate) * this.payPerHour
+    return dayWage
+}
+
+function findEmployeeByFirstName(allEmployeeArray, matchName){
+    let employeeMatch = allEmployeeArray.find(employee => employee.firstName === matchName)
+    return employeeMatch
+}
+
+function calculatePayroll(employeeInfoArray){
     
+    
+    console.log(empWages)
 }
